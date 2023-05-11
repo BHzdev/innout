@@ -4,6 +4,7 @@
   <span>por BHzDev</span>
 </footer>
 
+<script src="assets/js/app.js"></script>
 </body>
 
 </html>
