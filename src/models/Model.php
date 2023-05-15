@@ -22,7 +22,7 @@ class Model
 
   public function __get($key)
   {
-    return $this->values[$key];
+    return isset($this->values[$key]) ? $this->values[$key] : null;
   }
 
   public function __set($key, $value)
