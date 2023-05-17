@@ -1,13 +1,5 @@
 <?php
 // Controller Temporário
+loadModel('WorkingHours');
 
-$i1 = DateInterval::createFromDateString("9 hours");
-$i2 = DateInterval::createFromDateString("6 hours");
-
-$r1 = sumIntervals($i1, $i2);
-$r2 = subtractIntervals($i1, $i2);
-
-print_r($r1);
-print_r($r2);
-print_r(getDateFromInterval($r1));
-print_r(getDateFromString("14:53:20"));
+$wh = WorkingHours::loadFromUserAndDate(1, date('Y-m-d'));
