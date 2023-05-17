@@ -9,3 +9,4 @@ $r2 = subtractIntervals($i1, $i2);
 
 print_r($r1);
 print_r($r2);
+print_r(getDateFromInterval($r1));
