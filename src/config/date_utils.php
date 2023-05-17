@@ -32,3 +32,11 @@ function sumIntervals($interval1, $interval2)
   $date->add($interval2);
   return (new DateTime("00:00:00"))->diff($date);
 }
+
+function subtractIntervals($interval1, $interval2)
+{
+  $date = new DateTime("00:00:00");
+  $date->add($interval1);
+  $date->sub($interval2);
+  return (new DateTime("00:00:00"))->diff($date);
+}
