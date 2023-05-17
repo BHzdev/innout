@@ -12,6 +12,10 @@ try {
   $formatter->setPattern('HH:mm:ss');
   $currentTime = time();
   $formattedTime = $formatter->format($currentTime);
+
+  if ($_POST['forcedTime']) {
+    $formattedTime = $_POST['forcedTime'];
+  }
   $records->innout($formattedTime);
 
   addSuccessMsg("Ponto inserido com sucesso");
