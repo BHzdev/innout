@@ -14,15 +14,9 @@ try {
   $formattedTime = $formatter->format($currentTime);
   $records->innout($formattedTime);
 
-  $_SESSION['message'] = [
-    'type' => 'success',
-    'message' => 'Ponto inserido com sucesso'
-  ];
+  addSuccessMsg("Ponto inserido com sucesso");
 } catch (AppException $e) {
-  $_SESSION['message'] = [
-    'type' => 'error',
-    'message' => $e->getMessage()
-  ];
+  addErrorMsg($e->getMessage());
 }
 
 header('Location: day_records.php');
