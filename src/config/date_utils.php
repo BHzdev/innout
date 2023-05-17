@@ -45,3 +45,8 @@ function getDateFromInterval($interval)
 {
   return new DateTimeImmutable($interval->format('%H:%i:%s'));
 }
+
+function getDateFromString($str)
+{
+  return DateTimeImmutable::createFromFormat('H:i:s', $str);
+}
