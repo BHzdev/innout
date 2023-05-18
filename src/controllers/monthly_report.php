@@ -20,7 +20,7 @@ for ($day = 1; $day <= $lastDay; $day++) {
   if (isPastWorkday($date)) $workDay++;
 
   if ($registry) {
-    $sumOfWorkedTime = $registry->worked_time;
+    $sumOfWorkedTime += $registry->worked_time;
     array_push($report, $registry);
   } else {
     array_push($report, new WorkingHours([
@@ -31,12 +31,12 @@ for ($day = 1; $day <= $lastDay; $day++) {
 }
 
 $expectedTime = $workDay * DAILY_TIME;
-$balance = $sumOfWorkedTime - $expectedTime;
+$balance = getTimeStringFromSeconds(abs($sumOfWorkedTime - $expectedTime));
+$sign = ($sumOfWorkedTime >= $expectedTime) ? '+' : '-';
 
-echo $balance;
-die();
-// loadTemplateView('monthly_report', [
-//   'report' => $report,
-//   'sumOfWorkedTime' => $sumOfWorkedTime,
-//   'balance' => $balance
-// ]);
+echo "{$sign}{$balance}";
+loadTemplateView('monthly_report', [
+  'report' => $report,
+  'sumOfWorkedTime' => $sumOfWorkedTime,
+  'balance' => "{$sign}{$balance}",
+]);
