@@ -34,9 +34,8 @@ $expectedTime = $workDay * DAILY_TIME;
 $balance = getTimeStringFromSeconds(abs($sumOfWorkedTime - $expectedTime));
 $sign = ($sumOfWorkedTime >= $expectedTime) ? '+' : '-';
 
-echo "{$sign}{$balance}";
 loadTemplateView('monthly_report', [
   'report' => $report,
-  'sumOfWorkedTime' => $sumOfWorkedTime,
+  'sumOfWorkedTime' => getTimeStringFromSeconds($sumOfWorkedTime),
   'balance' => "{$sign}{$balance}",
 ]);
