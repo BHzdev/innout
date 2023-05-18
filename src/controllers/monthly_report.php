@@ -17,11 +17,26 @@ for ($day = 1; $day <= $lastDay; $day++) {
   $date = $currentDate->format('Y-m') . '-' . sprintf('%02d', $day);
   $registry = isset($registries[$date]) && $registries[$date] ? $registries[$date] : null;
 
-  print_r($registry);
-  echo '<br>';
+  if (isPastWorkday($date)) $workDay++;
+
+  if ($registry) {
+    $sumOfWorkedTime = $registry->worked_time;
+    array_push($report, $registry);
+  } else {
+    array_push($report, new WorkingHours([
+      'work_date' => $date,
+      'worked_time' => 0
+    ]));
+  }
 }
 
+$expectedTime = $workDay * DAILY_TIME;
+$balance = $sumOfWorkedTime - $expectedTime;
 
+echo $balance;
+die();
 // loadTemplateView('monthly_report', [
-//   'registries' => $registries
+//   'report' => $report,
+//   'sumOfWorkedTime' => $sumOfWorkedTime,
+//   'balance' => $balance
 // ]);
