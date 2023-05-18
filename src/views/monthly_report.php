@@ -15,7 +15,7 @@
       <tbody>
         <?php foreach ($report as $registry) : ?>
           <tr>
-            <td><?php echo $registry->work_date ?></td>
+            <td><?php echo formatDateWithLocale($registry->work_date, 'd-m-y'); ?></td>
             <td><?php echo $registry->time1 ?></td>
             <td><?php echo $registry->time2 ?></td>
             <td><?php echo $registry->time3 ?></td>
