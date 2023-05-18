@@ -57,7 +57,6 @@ function getFirstDayOfMonth($date)
   return new DateTime(date('Y-m-1', $time));
 }
 
-
 function getLastDayOfMonth($date)
 {
   $time = getDateAsDateTime($date)->getTimeStamp();
