@@ -15,19 +15,19 @@
       <tbody>
         <?php foreach ($report as $registry) : ?>
           <tr>
-            <td><?php echo formatDateWithLocale($registry->work_date, 'd-m-y'); ?></td>
-            <td><?php echo $registry->time1 ?></td>
-            <td><?php echo $registry->time2 ?></td>
-            <td><?php echo $registry->time3 ?></td>
-            <td><?php echo $registry->time4 ?></td>
-            <td><?php echo "Saldo" ?></td>
+            <td><?= formatDateWithLocale($registry->work_date, 'd-m-y'); ?></td>
+            <td><?= $registry->time1 ?></td>
+            <td><?= $registry->time2 ?></td>
+            <td><?= $registry->time3 ?></td>
+            <td><?= $registry->time4 ?></td>
+            <td><?= $registry->getBalance() ?></td>
           </tr>
         <?php endforeach ?>
         <tr class="bg-primary text-white">
           <td>Horas Trabalhadas</td>
-          <td colspan="3"><?php echo $sumOfWorkedTime ?></td>
+          <td colspan="3"><?= $sumOfWorkedTime ?></td>
           <td>Saldo Mensal</td>
-          <td><?php echo $balance ?></td>
+          <td><?= $balance ?></td>
         </tr>
       </tbody>
     </table>
