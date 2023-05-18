@@ -2,12 +2,8 @@
 session_start();
 requireValidSession();
 
-loadModel('WorkingHours');
-
 $date = new DateTime();
 $formatter = new IntlDateFormatter('pt_BR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
 $today = $formatter->format($date);
 
-loadTemplateView('day_records', [
-  'today' => $today,
-]);
+loadTemplateView('day_records', ['today' => $today,]);
