@@ -123,7 +123,7 @@ class WorkingHours extends Model
     $today = new DateTime();
 
     $result = Database::getResultFromQuery("
-        SELECT name FROM usersWHERE end_date is NULL
+        SELECT name FROM users WHERE end_date is NULL
         AND id NOT IN (
           SELECT user_id FROM working_hours
           WHERE work_date = '{$today->format('Y-m-d')}'
