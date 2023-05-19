@@ -46,6 +46,7 @@ function populateWorkingHours($userId, $initialDate, $regularRate, $extraRate, $
       $template = getDayTemplateByOdds($regularRate, $extraRate, $lazyRate);
       $columns = array_merge($columns, $template);
       $workingHours = new WorkingHours($columns);
+      print_r($workingHours);
       $workingHours->insert();
     }
     $currentDate = getNextDay($currentDate)->format('Y-m-d');
@@ -54,7 +55,7 @@ function populateWorkingHours($userId, $initialDate, $regularRate, $extraRate, $
 }
 
 populateWorkingHours(1, date('Y-m-1'), 70, 20, 10);
-populateWorkingHours(3, date('Y-m-d'), 20, 75, 5);
-populateWorkingHours(4, date('Y-m-d'), 20, 10, 70);
+populateWorkingHours(3, date('Y-m-1'), 30, 60, 10);
+populateWorkingHours(4, date('Y-m-1'), 20, 10, 70);
 
 echo "ok";
