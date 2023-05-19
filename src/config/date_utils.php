@@ -82,3 +82,10 @@ function getTimeStringFromSeconds($seconds)
   $s = $seconds - ($h * 3600) - ($m * 60);
   return sprintf('%02d:%02d:%02d', $h, $m, $s);
 }
+
+function formatDateWithLocale($date, $pattern)
+{
+  $dateTime = getDateAsDateTime($date);
+  $formattedDate = $dateTime->format($pattern);
+  return $formattedDate;
+}
