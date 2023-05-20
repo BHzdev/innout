@@ -22,7 +22,7 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="password">Senha</label>
-        <input type="text" id="password" name="password" placeholder="Informe a senha" class="form-control">
+        <input type="password" id="password" name="password" placeholder="Informe a senha" class="form-control">
       </div>
       <div class="form-group col-md-6">
         <label for="confirm_password">Confirmação de Senha</label>
