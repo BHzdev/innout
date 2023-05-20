@@ -1,9 +1,10 @@
 <?php
 session_start();
-requireValidSession();
+requireValidSession(true);
 
 $user = $_SESSION['user'];
 $exception = null;
+$userData = null;
 
 if (count($_POST) === 0 && isset($_GET['update'])) {
   $user = User::getOne(['id' =>  $_GET['update']]);
@@ -29,6 +30,7 @@ if (count($_POST) === 0 && isset($_GET['update'])) {
   }
 }
 
-loadTemplateView('save_user', $userData + [
+loadTemplateView('save_user', [
   'exception' => $exception,
+  $userData,
 ]);
