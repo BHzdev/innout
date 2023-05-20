@@ -1,5 +1,4 @@
 <?php
-$errors = [];
 $message = [];
 
 if (isset($_SESSION['message'])) {
